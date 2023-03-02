@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">    
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="in44u | infomation for you | Information for your prosperous life." />
+        <meta name="author" content="" />
+        <title>info4you | Information for your prosperous life.</title>
+        <!-- link rel="icon" type="image/x-icon" href="assets/favicon.ico" /-->
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Pro:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic%7CPoppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" media="all">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />    
+        <link href="https://uploads-ssl.webflow.com/63c11efc5350220c8004484e/css/mindfulmosaic.webflow.08d5ec25b.min.css" rel="stylesheet" type="text/css">
+        <link href="https://uploads-ssl.webflow.com/63c11efc5350220c8004484e/63c93d3142b133a79a641305_Mindful%20Mosaic%20Favicon.png" rel="shortcut icon" type="image/x-icon">       
+    </head>
+    <body>
+        <div class = "overflow-container">
+            <!-- Navigation -->
+            <div class="navigation">
+                <div class="navbar-div">
+                    <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+                        <!-- logo -->
+                        <div class="logo-div">
+                            <a href="/" aria-current="page" class="logo-link w-nav-brand w--current" aria-label="home">
+                                info4you
+                            </a>
+                        </div>
+                        <div class="center-navbar-div">
+                            <!-- category -->
+                            <div class="navbar-categories w-dyn-list">
+                                <div role="list" class="navbar-categories-list w-dyn-items">
+                                    <div role="listitem" class="navbar-categories-item w-dyn-item">
+                                        <a href="{% url 'category' 'health' %}" class="navbar-categories-link">health</a>
+                                    </div>
+                                    <div role="listitem" class="navbar-categories-item w-dyn-item">
+                                        <a href="{% url 'category' 'cooking' %}" class="navbar-categories-link">cooking</a>
+                                    </div>
+                                    <div role="listitem" class="navbar-categories-item w-dyn-item">
+                                        <a href="{% url 'category' 'career' %}" class="navbar-categories-link">career</a>
+                                    </div>
+                                    <div role="listitem" class="navbar-categories-item w-dyn-item">
+                                        <a href="{% url 'category' 'parenting' %}" class="navbar-categories-link">parenting</a>
+                                    </div>
+                                    <div role="listitem" class="navbar-categories-item w-dyn-item">
+                                        <a href="{% url 'category' 'shopping' %}" class="navbar-categories-link">shopping</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <!-- contnent -->
+
+            {% block content %}
+            {% endblock %}
+
+            <!-- footer -->
+            <div class="footer-2 wf-section">
+                <div class="container">
+                    <div class="footer-bottom">
+                        <a href="/" class="footer-logo-link w-inline-block">
+                            info4you
+                        </a>
+                        <div class="footer-links">
+                            <a href="" target="_blank" class="footer-link">Made by info4you</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

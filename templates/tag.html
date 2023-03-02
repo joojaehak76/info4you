@@ -1,0 +1,72 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<!-- tags list -->
+<div class="list-section wf-section">
+    <div class="container">
+        <div class="title-div list">
+            <h2 class="h4-heading-tag tag-name">{{ tag }}</h2>
+            <h2 class="h4-heading-tag"> Tag</h2>
+        </div>
+        <div class="list-div">
+            <!-- left -->
+            <div class="list-left">
+                <div class="list-wrapper w-dyn-list">
+                    <div role="list" class="list-list w-dyn-items">
+                        <!-- posts 5 -->
+                        {% for post in posts1 %}
+                        <div role="listitem" class="list-item w-dyn-item">
+                            <a style="background-image:url(&quot;https://source.unsplash.com/1600x900/?{{ post.category }}, {{ post.title }}&quot;)" href="{% url 'post' post.slug %}" class="post-image vertical w-inline-block"></a>
+                            <div class="post-about"><div class="post-info vertical">
+                                <a href="{% url 'category' post.category %}" aria-current="page" class="caption w--current">{{ post.category }}</a>
+                            </div>
+                            <a href="{% url 'post' post.slug %}" class="post-title-link w-inline-block">
+                                <h3 class="post-title">{{ post.title }}</h3>
+                            </a>
+                            <div class="paragraph-small">{{ post.summary }}</div>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 5 -->
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- right -->
+            <div class="list-sidebar">
+                <h4 class="h4-sidebar">Best Posts</h4>
+                <div class="sidebar-posts-wrapper w-dyn-list">
+                    <div role="list" class="sidebar-posts-list w-dyn-items">
+                        <!-- posts 3 -->
+                        {% for post in posts2 %}
+                        <div role="listitem" class="sidebar-posts-item w-dyn-item">
+                            <a style="background-image:url(&quot;https://source.unsplash.com/1600x900/?{{ post.category }}, {{ post.title }}&quot;)" href="{% url 'post' post.slug %}" class="sidebar-posts-image w-inline-block"></a>
+                            <div class="sidebar-posts-text">
+                                <a href="{% url 'category' post.category %}" class="caption">{{ post.category }}</a>
+                                <a href="{% url 'post' post.slug %}" class="sidebar-posts-title-link w-inline-block">
+                                    <h5 class="category-sidebar-heading" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">{{ post.title }}</h5>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 3 -->
+                    </div>
+                </div>
+                <h4 class="h4-sidebar">Recommended Tags</h4>
+                <div class="all-tags-wrapper w-dyn-list">
+                    <div role="list" class="all-tags-list w-dyn-items">
+                        <!-- tags 10 -->
+                        {% for tag in tags %}
+                        <div role="listitem" class="all-tags-item w-dyn-item">
+                            <a href="{% url 'tag' tag.slug %}" class="sidebar-tag-link w-inline-block">
+                                <div class="cat-tag-text">{{ tag.name }}</div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        <!-- tags 10 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

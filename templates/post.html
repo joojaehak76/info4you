@@ -1,0 +1,80 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<!-- post page header -->
+<div class="open-blog-header wf-section">
+    <div class="container">
+        <div class="open-blog-div">
+            <div class="blog-post-info">
+                <div class="blog-post-info-div">
+                    <a href="{% url 'category' post.category %}" class="info-text category">{{ post.category }}</a>
+                    <div class="info-divider blog-post"></div>
+                    <div class="info-text">{{ post.create_date }}</div>
+                </div>
+            </div>
+            <h1 class="heading">{{ post.title }}</h1>
+            <div class="breadcrumb-div blog-post">
+                <a href="/" class="breadcrumb-link">Home</a>
+                <img src="https://uploads-ssl.webflow.com/63c11efc5350220c8004484e/63c11efc535022762004488a_arrow-right.svg" alt="arrow" class="breadcrumb-arrow">
+                <a href="{% url 'category' post.category %}" class="breadcrumb-link">{{ post.category }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- image -->
+<div class="image-section blog wf-section">
+    <div style="opacity: 0;" class="page-load-block"></div>
+    <div style="background-image: url(&quot;https://source.unsplash.com/1600x900/?{{ post.category }}, {{ post.title }}&quot;); will-change: transform; transform: translate3d(0px, 25.976px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="image-section-div"></div>
+</div>
+
+<!-- content -->
+<div class="main-post-section wf-section">
+    <div class="container post">
+        <div class="main-post-div">
+            <div class="rich-blog-post w-richtext">{{ post.content|safe }}</div>
+            <div class="main-post-divider"></div>
+            <div class="main-post-details">
+                <div class="all-tags-wrapper w-dyn-list">
+                    <div role="list" class="all-tags-list w-dyn-items">
+                        <!-- tags 5 --> 
+                        {% for tag in post.tags.all %}                       
+                        <div role="listitem" class="all-tags-item w-dyn-item">
+                            <a href="/tag/{{ tag.name }}" class="sidebar-tag-link w-inline-block">
+                                <div class="cat-tag-text">{{ tag.name }}</div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        <!-- tags 5 -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="related-blog-posts wf-section">
+                <div class="container">
+                    <div>
+                        <div class="related-wrapper w-dyn-list">
+                            <div role="list" class="related-list w-dyn-items">
+                                <!-- post 3 -->
+                                {% for post in posts %}
+                                <div role="listitem" class="related-item w-dyn-item">
+                                    <a style="background-image:url(&quot;https://source.unsplash.com/1600x900/?{{ post.category }}, {{ post.title }}&quot;)" href="{% url 'post' post.slug %}" class="post-image w-inline-block"></a>
+                                    <div class="post-info">
+                                        <div class="info-text">{{ post.create_date }}</div>
+                                    </div>
+                                    <a href="{% url 'post' post.slug %}" class="post-title-link w-inline-block">
+                                        <h3 class="post-title">{{ post.title }}</h3>
+                                    </a>
+                                    <div class="paragraph-small">{{ post.summary }}</div>
+                                </div>
+                                {% endfor %}
+                                <!-- post 3 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

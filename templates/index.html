@@ -1,0 +1,350 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<!-- main page header -->
+<div class="header-2 wf-section">
+    <div class="container">
+        <div class="header-2-div">
+            <div class="header-1-title">
+                <h1 class="h1-heading">Information for your prosperous life.</h1>
+                <div class="h1-word-line">
+                    <div data-w-id="868a6279-eb54-39a6-4245-99260df39a08" class="word-line orange" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+
+<!-- best hit -->
+{% if best_posts %}
+<div class="features-posts wf-section">
+    <div class="container">
+        <div class="title-div">
+            <h2 class="category-title">Best Posts</h2>
+            <div class="heading-line"></div>
+        </div>
+        <div class="featured-posts-wrapper w-dyn-list">
+            <div role="list" class="featured-posts-list w-dyn-items">
+                <!-- posts 3 -->
+                {% for best_post in best_posts %}
+                <div role="listitem" class="post-item w-dyn-item">
+                    <a style="background-image:url(&quot;https://source.unsplash.com/1600x900/?{{ best_post.category }}, {{ best_post.title }}&quot;)" class="post-image vertical w-inline-block" href="{% url 'post' best_post.slug %}"></a>
+                    <div class="post-info">
+                        <a href="/category/{{ best_post.category }}" class="info-text category">{{ best_post.category }}</a>
+                        <div class="info-divider"></div>
+                        <div class="info-text">{{ best_post.create_date }}</div>
+                    </div>
+                    <a href="{% url 'post' best_post.slug %}" class="post-title-link w-inline-block">
+                        <h3 class="post-title">{{ best_post.title }}</h3>
+                    </a>
+                    <div class="paragraph-small">{{ best_post.summary }}</div>
+                </div>
+                {% endfor %}
+                <!-- posts 3 -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- best hit -->
+
+<div class="about-author-section alternative wf-section">
+    <div class="container">
+        <div class="about-author">
+            <div class="about-author-left alternative">
+                <div class="about-author-text">about this blog</div>
+                <div class="quote-italic">"Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful."</div>
+            </div>
+            <div class="about-author-image-div alternative">
+                <img src="https://source.unsplash.com/1600x900/?nature,water">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- category : health -->
+{% if health_posts1 %}
+<div class="category-section wf-section">
+    <div class="container">
+        <div class="title-div">
+            <h2 class="category-title">{{ health_category }}</h2>
+            <div class="heading-line orange"></div>
+        </div>
+        <div class="category-section-div">
+            <div class="category-section-left">
+                <div class="category-section-wrapper w-dyn-list">
+                    <div role="list" class="category-section-list vertical w-dyn-items">
+                        <!-- posts 3 -->
+                        {% for post1 in health_posts1 %}
+                        <div role="listitem" class="post-item vertical w-dyn-item">
+                            <a style="background-image:url(&quot;https://source.unsplash.com/1600x900/?{{ post1.category }}, {{ post1.title }}&quot;)" class="post-image vertical w-inline-block" href="{% url 'post' post1.slug %}"></a>
+                            <div class="post-about">
+                                <div class="post-info vertical">
+                                    <a href="/category/{{ post1.category }}" class="info-text category">{{ post1.category }}</a>
+                                    <div class="info-divider"></div>
+                                    <div class="info-text">{{ post1.create_date }}</div>
+                                </div>
+                                <a href="/post/{{ post1.slug }}" class="post-title-link w-inline-block">
+                                    <h3 class="post-title">{{ post1.title }}</h3>
+                                </a>
+                                <div class="paragraph-small">{{ post1.summary }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 3 -->
+                    </div>
+                </div>
+            </div>
+            <!-- more list -->
+            <div class="category-section-sidebar">
+                <h4 class="h4-sidebar">More in {{ health_category }}</h4>
+                <div class="category-sidebar-wrapper w-dyn-list">
+                    <div role="list" class="category-sidebar-list w-dyn-items">
+                        <!-- posts 5 -->
+                        {% for post2 in health_posts2 %}
+                        <div role="listitem" class="category-sidebar-item w-dyn-item">
+                            <a href="/category/{{ post2.category }}" class="info-text category bottom">{{ post2.category }}</a>
+                            <a href="/post/{{ post2.slug }}" class="sidebar-title-link w-inline-block">
+                                <h5 class="category-sidebar-heading" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">{{ post2.title }}</h5>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 5 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- category : health -->
+
+<!-- category : cooking -->
+{% if cooking_posts1 %}
+<div class="category-section wf-section">
+    <div class="container">
+        <div class="title-div">
+            <h2 class="category-title">{{ cooking_category }}</h2>
+            <div class="heading-line orange"></div>
+        </div>
+        <div class="category-section-div">
+            <div class="category-section-left">
+                <div class="category-section-wrapper w-dyn-list">
+                    <div role="list" class="category-section-list vertical w-dyn-items">
+                        <!-- posts 3 -->
+                        {% for post1 in cooking_posts1 %}
+                        <div role="listitem" class="post-item vertical w-dyn-item">
+                            <a style="background-image:url(&quot;https://source.unsplash.com/1600x900/?{{ post1.category }}, {{ post1.title }}&quot;)" class="post-image vertical w-inline-block" href="{% url 'post' post1.slug %}"></a>
+                            <div class="post-about">
+                                <div class="post-info vertical">
+                                    <a href="/category/{{ post1.category }}" class="info-text category">{{ post1.category }}</a>
+                                    <div class="info-divider"></div>
+                                    <div class="info-text">{{ post1.create_date }}</div>
+                                </div>
+                                <a href="/post/{{ post1.slug }}" class="post-title-link w-inline-block">
+                                    <h3 class="post-title">{{ post1.title }}</h3>
+                                </a>
+                                <div class="paragraph-small">{{ post1.summary }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 3 -->
+                    </div>
+                </div>
+            </div>
+            <!-- more list -->
+            <div class="category-section-sidebar">
+                <h4 class="h4-sidebar">More in {{ cooking_category }}</h4>
+                <div class="category-sidebar-wrapper w-dyn-list">
+                    <div role="list" class="category-sidebar-list w-dyn-items">
+                        <!-- posts 5 -->
+                        {% for post2 in cooking_posts2 %}
+                        <div role="listitem" class="category-sidebar-item w-dyn-item">
+                            <a href="/category/{{ post2.category }}" class="info-text category bottom">{{ post2.category }}</a>
+                            <a href="/post/{{ post2.slug }}" class="sidebar-title-link w-inline-block">
+                                <h5 class="category-sidebar-heading" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">{{ post2.title }}</h5>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 5 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- category : cooking -->
+
+<!-- category : career -->
+{% if career_posts1 %}
+<div class="category-section wf-section">
+    <div class="container">
+        <div class="title-div">
+            <h2 class="category-title">{{ career_category }}</h2>
+            <div class="heading-line orange"></div>
+        </div>
+        <div class="category-section-div">
+            <div class="category-section-left">
+                <div class="category-section-wrapper w-dyn-list">
+                    <div role="list" class="category-section-list vertical w-dyn-items">
+                        <!-- posts 3 -->
+                        {% for post1 in career_posts1 %}
+                        <div role="listitem" class="post-item vertical w-dyn-item">
+                            <a style="background-image:url(&quot;https://source.unsplash.com/1600x900/?{{ post1.category }}, {{ post1.title }}&quot;)" class="post-image vertical w-inline-block" href="{% url 'post' post1.slug %}"></a>
+                            <div class="post-about">
+                                <div class="post-info vertical">
+                                    <a href="/category/{{ post1.category }}" class="info-text category">{{ post1.category }}</a>
+                                    <div class="info-divider"></div>
+                                    <div class="info-text">{{ post1.create_date }}</div>
+                                </div>
+                                <a href="/post/{{ post1.slug }}" class="post-title-link w-inline-block">
+                                    <h3 class="post-title">{{ post1.title }}</h3>
+                                </a>
+                                <div class="paragraph-small">{{ post1.summary }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 3 -->
+                    </div>
+                </div>
+            </div>
+            <!-- more list -->
+            <div class="category-section-sidebar">
+                <h4 class="h4-sidebar">More in {{ career_category }}</h4>
+                <div class="category-sidebar-wrapper w-dyn-list">
+                    <div role="list" class="category-sidebar-list w-dyn-items">
+                        <!-- posts 5 -->
+                        {% for post2 in career_posts2 %}
+                        <div role="listitem" class="category-sidebar-item w-dyn-item">
+                            <a href="/category/{{ post2.category }}" class="info-text category bottom">{{ post2.category }}</a>
+                            <a href="/post/{{ post2.slug }}" class="sidebar-title-link w-inline-block">
+                                <h5 class="category-sidebar-heading" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">{{ post2.title }}</h5>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 5 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- category : career -->
+
+<!-- category : parenting -->
+{% if parenting_posts1 %}
+<div class="category-section wf-section">
+    <div class="container">
+        <div class="title-div">
+            <h2 class="category-title">{{ parenting_category }}</h2>
+            <div class="heading-line orange"></div>
+        </div>
+        <div class="category-section-div">
+            <div class="category-section-left">
+                <div class="category-section-wrapper w-dyn-list">
+                    <div role="list" class="category-section-list vertical w-dyn-items">
+                        <!-- posts 3 -->
+                        {% for post1 in parenting_posts1 %}
+                        <div role="listitem" class="post-item vertical w-dyn-item">
+                            <a style="background-image:url(&quot;https://source.unsplash.com/1600x900/?{{ post1.category }}, {{ post1.title }}&quot;)" class="post-image vertical w-inline-block" href="{% url 'post' post1.slug %}"></a>
+                            <div class="post-about">
+                                <div class="post-info vertical">
+                                    <a href="/category/{{ post1.category }}" class="info-text category">{{ post1.category }}</a>
+                                    <div class="info-divider"></div>
+                                    <div class="info-text">{{ post1.create_date }}</div>
+                                </div>
+                                <a href="/post/{{ post1.slug }}" class="post-title-link w-inline-block">
+                                    <h3 class="post-title">{{ post1.title }}</h3>
+                                </a>
+                                <div class="paragraph-small">{{ post1.summary }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 3 -->
+                    </div>
+                </div>
+            </div>
+            <!-- more list -->
+            <div class="category-section-sidebar">
+                <h4 class="h4-sidebar">More in {{ parenting_category }}</h4>
+                <div class="category-sidebar-wrapper w-dyn-list">
+                    <div role="list" class="category-sidebar-list w-dyn-items">
+                        <!-- posts 5 -->
+                        {% for post2 in parenting_posts2 %}
+                        <div role="listitem" class="category-sidebar-item w-dyn-item">
+                            <a href="/category/{{ post2.category }}" class="info-text category bottom">{{ post2.category }}</a>
+                            <a href="/post/{{ post2.slug }}" class="sidebar-title-link w-inline-block">
+                                <h5 class="category-sidebar-heading" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">{{ post2.title }}</h5>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 5 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- category : parenting -->
+
+<!-- category : shopping -->
+{% if shopping_posts1 %}
+<div class="category-section wf-section">
+    <div class="container">
+        <div class="title-div">
+            <h2 class="category-title">{{ shopping_category }}</h2>
+            <div class="heading-line orange"></div>
+        </div>
+        <div class="category-section-div">
+            <div class="category-section-left">
+                <div class="category-section-wrapper w-dyn-list">
+                    <div role="list" class="category-section-list vertical w-dyn-items">
+                        <!-- posts 3 -->
+                        {% for post1 in shopping_posts1 %}
+                        <div role="listitem" class="post-item vertical w-dyn-item">
+                            <a style="background-image:url(&quot;https://source.unsplash.com/1600x900/?{{ post1.category }}, {{ post1.title }}&quot;)" class="post-image vertical w-inline-block" href="{% url 'post' post1.slug %}"></a>
+                            <div class="post-about">
+                                <div class="post-info vertical">
+                                    <a href="/category/{{ post1.category }}" class="info-text category">{{ post1.category }}</a>
+                                    <div class="info-divider"></div>
+                                    <div class="info-text">{{ post1.create_date }}</div>
+                                </div>
+                                <a href="/post/{{ post1.slug }}" class="post-title-link w-inline-block">
+                                    <h3 class="post-title">{{ post1.title }}</h3>
+                                </a>
+                                <div class="paragraph-small">{{ post1.summary }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 3 -->
+                    </div>
+                </div>
+            </div>
+            <!-- more list -->
+            <div class="category-section-sidebar">
+                <h4 class="h4-sidebar">More in {{ shopping_category }}</h4>
+                <div class="category-sidebar-wrapper w-dyn-list">
+                    <div role="list" class="category-sidebar-list w-dyn-items">
+                        <!-- posts 5 -->
+                        {% for post2 in shopping_posts2 %}
+                        <div role="listitem" class="category-sidebar-item w-dyn-item">
+                            <a href="/category/{{ post2.category }}" class="info-text category bottom">{{ post2.category }}</a>
+                            <a href="/post/{{ post2.slug }}" class="sidebar-title-link w-inline-block">
+                                <h5 class="category-sidebar-heading" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">{{ post2.title }}</h5>
+                            </a>
+                        </div>
+                        {% endfor %}
+                        <!-- posts 5 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- category : shopping -->
+
+{% endblock %}
